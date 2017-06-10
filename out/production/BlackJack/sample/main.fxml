@@ -7,33 +7,36 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ViewController">
    <children>
       <Separator layoutX="127.0" layoutY="1.0" orientation="VERTICAL" prefHeight="612.0" prefWidth="17.0" />
-      <Button id="newGameButton" layoutX="14.0" layoutY="74.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="109.0" text="Nowa Gra" textAlignment="CENTER" />
+      <Button fx:id="newGameButton" layoutX="14.0" layoutY="74.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="109.0" text="Nowa Gra" textAlignment="CENTER" />
       <Label layoutX="16.0" layoutY="32.0" text="BLACKJACK v1.0" />
-      <Button id="bet" disable="true" layoutX="216.0" layoutY="14.0" mnemonicParsing="false" text="Postaw" />
-      <TextField disable="true" layoutX="144.0" layoutY="14.0" prefHeight="26.0" prefWidth="65.0" />
+      <Button fx:id="bet" disable="true" layoutX="216.0" layoutY="14.0" mnemonicParsing="false" text="Postaw" />
+      <TextField fx:id="betText" disable="true" layoutX="144.0" layoutY="14.0" prefHeight="26.0" prefWidth="65.0" />
       <Separator layoutX="136.0" layoutY="47.0" prefHeight="0.0" prefWidth="678.0" />
-      <Label layoutX="306.0" layoutY="19.0" text="Depozyt:" />
-      <Label id="depositView" layoutX="365.0" layoutY="19.0" text="0" />
+      <Label layoutX="306.0" layoutY="19.0" text="Do Wygrania:" />
+      <Label fx:id="gameDepositView" layoutX="400.0" layoutY="19.0" text="0" />
       <Label layoutX="593.0" layoutY="19.0" text="Talia:" />
-      <Label id="deckCountView" layoutX="629.0" layoutY="19.0" text="0" />
+      <Label fx:id="deckCountView" layoutX="629.0" layoutY="19.0" text="0" />
       <Separator layoutX="454.0" layoutY="47.0" orientation="VERTICAL" prefHeight="291.0" prefWidth="9.0" />
       <Separator layoutX="136.0" layoutY="341.0" prefHeight="3.0" prefWidth="678.0" />
       <Label layoutX="136.0" layoutY="344.0" text="System:" />
-      <TextArea disable="true" layoutX="144.0" layoutY="360.0" prefHeight="231.0" prefWidth="646.0" />
+      <TextArea fx:id="systemLogView" disable="true" layoutX="144.0" layoutY="360.0" prefHeight="231.0" prefWidth="646.0" />
       <Label layoutX="145.0" layoutY="58.0" text="GRACZ" />
       <Label layoutX="467.0" layoutY="58.0" text="KRUPIER" />
       <Label layoutX="145.0" layoutY="85.0" text="PUNKTY:" />
-      <Label id="playerScoreView" layoutX="209.0" layoutY="85.0" text="0" />
+      <Label fx:id="playerScoreView" layoutX="209.0" layoutY="85.0" text="0" />
       <Label layoutX="467.0" layoutY="85.0" text="PUNKTY:" />
-      <Label id="croupierScoreView" layoutX="529.0" layoutY="85.0" text="0" />
-      <Button id="drawCard" disable="true" layoutX="142.0" layoutY="112.0" mnemonicParsing="false" text="DOBIERZ" />
-      <Button id="wait" disable="true" layoutX="142.0" layoutY="147.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="78.0" text="CZEKAJ" />
+      <Label fx:id="croupierScoreView" layoutX="529.0" layoutY="85.0" text="0" />
+      <Button fx:id="drawCard" disable="true" layoutX="142.0" layoutY="112.0" mnemonicParsing="false" text="DOBIERZ" />
+      <Button fx:id="wait" disable="true" layoutX="142.0" layoutY="147.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="78.0" text="CZEKAJ" />
       <Label layoutX="145.0" layoutY="230.0" text="Posiadane karty:" />
       <Label layoutX="467.0" layoutY="230.0" text="Posiadane karty:" />
-      <TextArea id="playerCardOwnView" disable="true" layoutX="142.0" layoutY="252.0" prefHeight="83.0" prefWidth="306.0" />
-      <TextArea id="croupierCardOwnView" disable="true" layoutX="467.0" layoutY="252.0" prefHeight="83.0" prefWidth="324.0" />
+      <TextArea fx:id="playerCardOwnView" disable="true" layoutX="142.0" layoutY="252.0" prefHeight="83.0" prefWidth="306.0" />
+      <TextArea fx:id="croupierCardOwnView" disable="true" layoutX="467.0" layoutY="252.0" prefHeight="83.0" prefWidth="324.0" />
+      <Label fx:id="playerDepositView" layoutX="214.0" layoutY="58.0" text="0" />
+      <Label fx:id="croupierDepositView" layoutX="546.0" layoutY="58.0" text="0" />
+      <Button fx:id="newRoundButton" disable="true" layoutX="141.0" layoutY="180.0" mnemonicParsing="false" text="Nowa runda" />
    </children>
 </AnchorPane>
