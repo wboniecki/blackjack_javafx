@@ -1,9 +1,5 @@
 package sample;
 
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.List;
-
 /**
  * Main controller in game, contains all game objects and actions.
  * Actions is triggered by ViewController.java
@@ -152,6 +148,15 @@ public class GameController {
         }
     }
 
+    /**
+     *
+     * @param bet
+     *
+     * thi function is trigger in start of each round
+     * bet value is removed from player and croupier deposit and set in game deposit
+     * each player draw 2 card from deck
+     * at the end call function checkWin() - ( player blacjack)
+     */
     public void roundStart(String bet) {
         int betVal = Integer.parseInt(bet);
         player.subDeposit(betVal);
@@ -165,6 +170,9 @@ public class GameController {
         checkWin();
     }
 
+    /**
+     * this function ask model is player win or lose
+     */
     public void checkWin() {
         model.isPlayerRoundEnd(player.getScore());
         if (isPlayerWait()) {
@@ -172,21 +180,32 @@ public class GameController {
         }
     }
 
+    // return game deposit (deposit to win in round) to view
     public String getGameDeposit() {
         return Integer.toString(model.getGameDeposit())+"$";
     }
 
 
-
+    //return is player round end
     public boolean isPlayerWait() {
         return model.isPlayerWait();
     }
 
+    //set player wait to next round/ end of the game
     public void playerWait() {
         model.playerWait();
         endTurn();
     }
 
+    /**
+     * end of turn
+     * show hidden croupier card, ask model: do croupier must wait, if not draw card
+     * next compute winner and set it into model
+     * if player win (1) add cash deposit to player deposit
+     * if croupier win (2) add cash deposit to croupier deposit
+     * if draw (3) return bet to owners
+     * at the end check is game over (player have no cash or something)
+     */
     private void endTurn() {
         croupier.showCard();
         while (!model.isCroupierWait(croupier.getScore())){
@@ -206,6 +225,12 @@ public class GameController {
         checkGameOver();
     }
 
+    /**
+     * this function set in model by parameters is game over
+     * (this function can be void and only set the isOver parameter in game model)
+     * @return true if yes, false if no
+     */
+
     private boolean checkGameOver() {
         boolean isOver;
         if(model.checkGameOver(croupier.getDeposit(), player.getDeposit())) {
@@ -216,6 +241,7 @@ public class GameController {
         return isOver;
     }
 
+    // return is game over from model
     public boolean isGameOver() {
         return model.getOver();
     }

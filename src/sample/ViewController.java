@@ -1,4 +1,9 @@
 package sample;
+/**
+ * Main view in game
+ * display all buttons, text areas, fields, labels etc.
+ * call gameController action on click buttons
+ */
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -51,6 +56,9 @@ public class ViewController {
 
     }
 
+    /**
+     * this function below update all view and called every time when any action
+     */
     private void updateView() {
         systemLogView.setText(gameController.getGameLog());
         deckCountView.setText(gameController.getDeckCount());
@@ -76,7 +84,7 @@ public class ViewController {
         }
     }
     private void newGame() {
-        //ustawiamy początkowy widok parametrów gry
+        //set start parameters
         drawCard.setDisable(true);
         wait.setDisable(true);
         newRoundButton.setDisable(true);
@@ -97,6 +105,9 @@ public class ViewController {
         });
     }
 
+    /**
+     * round loop in game
+     */
     private void GameLoop() {
         drawCard.setDisable(false);
         wait.setDisable(false);
